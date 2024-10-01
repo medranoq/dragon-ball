@@ -1,0 +1,34 @@
+<h1>
+  {{ title }}
+</h1>
+
+<div class="character-card">
+  <img class="img" [src]="character.image" alt="{{ character.name }}"/>
+  <h2>{{ character.name }}</h2>
+  <p>{{ character.ki }}</p>
+  <p>{{ character.maxKi }}</p>
+  <p>{{ character.description }}</p>
+  <p>{{ character.race }}</p>
+  <p>{{ character.gender }}</p>
+  <p>{{ character.description }}</p>
+  <p>{{ character.affiliation }}</p>
+</div>
+
+<h2>Origin Planet</h2>
+<div class="planet-card">
+  <h3>{{ character.originPlanet.name }}</h3>
+  <p *ngIf="character.originPlanet.isDestroyed">Destruido</p>
+  <img class="img" [src]="character.originPlanet.image"/>
+</div>
+
+<div *ngIf="character.transformations">
+  <h2>Transformations</h2>
+  <div class="transformations">
+    <div *ngFor="let transformation of character.transformations">
+      <h3>{{ transformation.name }}</h3>
+      <img class="img-trans" [src]="transformation.image"/>
+      <p>{{ transformation.ki }}</p>
+    </div>
+  </div>
+</div>
+
